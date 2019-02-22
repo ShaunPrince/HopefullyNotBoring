@@ -8,6 +8,8 @@ public class PlayerAbilities : MonoBehaviour
     public Season mySeason;
 
     public Material[] currentColor;
+
+    public int seasonAbilityUsesRemaining;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,21 +54,30 @@ public class PlayerAbilities : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            switch(mySeason)
+            if(seasonAbilityUsesRemaining > 0)
             {
-                case Season.winter:
-                    Debug.Log("Winter Ability Used");
-                    break;
-                case Season.spring:
-                    Debug.Log("Spring Ability Used");
-                    break;
-                case Season.summer:
-                    Debug.Log("Summer Ability Used");
-                    break;
-                case Season.fall:
-                    Debug.Log("Fall Ability Used");
-                    break;
+                seasonAbilityUsesRemaining--;
+                switch (mySeason)
+                {
+                    case Season.winter:
+                        Debug.Log("Winter Ability Used");
+                        break;
+                    case Season.spring:
+                        Debug.Log("Spring Ability Used");
+                        break;
+                    case Season.summer:
+                        Debug.Log("Summer Ability Used");
+                        break;
+                    case Season.fall:
+                        Debug.Log("Fall Ability Used");
+                        break;
+                }
             }
+            else
+            {
+                Debug.Log("Out of ability uses");
+            }
+
         }
     }
 }
