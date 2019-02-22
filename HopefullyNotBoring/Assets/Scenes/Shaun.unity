@@ -306,7 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 10
-  negVelocityStartFallDamage: -10
+  VelocityStartFallDamage: 10
 --- !u!114 &249531479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3c7fffcfccee2c948b1b03cf5cdbc731, type: 2}
   - {fileID: 2100000, guid: 752e177a844a27f4391b77477f936082, type: 2}
   - {fileID: 2100000, guid: 8f371a46745495b4e86beecd71266c6d, type: 2}
+  seasonAbilityUsesRemaining: 4
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +422,7 @@ GameObject:
   - component: {fileID: 783270090}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,7 +434,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783270089}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c0544eaaea47ce24dba1ab628b8e8386, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -512,7 +513,7 @@ GameObject:
   - component: {fileID: 1318883495}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,7 +525,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318883494}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c0544eaaea47ce24dba1ab628b8e8386, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -603,7 +604,7 @@ GameObject:
   - component: {fileID: 1836748373}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,7 +616,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836748372}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c0544eaaea47ce24dba1ab628b8e8386, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

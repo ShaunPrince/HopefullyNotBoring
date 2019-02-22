@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rb;
     public float moveSpeed = 1;
     public float jumpForce;
-    public float negVelocityStartFallDamage;
+    public float VelocityStartFallDamage;
     private bool isGrounded;
     // Start is called before the first frame update
     void Start()
@@ -54,6 +54,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Floor"))
+        {
+
+            if (Mathf.Abs(collision.relativeVelocity.y) >= VelocityStartFallDamage)
+            {
+                Debug.Log("Fall impact at rel velocity " + collision.relativeVelocity.y + " >= dmg start velocity: " + VelocityStartFallDamage);
+            }
+        }
+    }
+
     private void CheckGrounded()
     {
 
@@ -61,11 +73,6 @@ public class PlayerMovement : MonoBehaviour
         //current layermask ignores the Player layer (layer 10)
         if(Physics.Raycast(this.transform.position, Vector3.down, out RaycastHit hit, 1f, ~(1 << 10)))
         {
-            //Debug.Log(hit.collider.transform.gameObject);
-            if(_rb.velocity.y <= negVelocityStartFallDamage)
-            {
-                Debug.Log("Fall impact at velocity " + _rb.velocity.y + " <= dmg start neg velocity: " + negVelocityStartFallDamage);
-            }
             isGrounded = true;
         }
         else
