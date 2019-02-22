@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckGrounded();
-        Debug.Log(isGrounded);
         Move();
         Jump();
     }
@@ -36,7 +35,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             //half movespeed control while airborne (not functional)
-            //_rb.velocity = new Vector3((deltaX * moveSpeed / 2), _rb.velocity.y, 0);
+            if(deltaX > 0 && _rb.velocity.x > 0 || deltaX < 0 && _rb.velocity.x < 0)
+            {
+                _rb.velocity = _rb.velocity;
+            }
+            else if (deltaX != 0)
+            {
+                _rb.velocity = new Vector3(deltaX * moveSpeed / 2, _rb.velocity.y, 0);
+            }
         }
     }
 
@@ -44,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            _rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
