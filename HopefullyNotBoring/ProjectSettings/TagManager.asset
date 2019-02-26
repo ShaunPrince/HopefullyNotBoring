@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - LeafPile
+  - WinterStorm
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - PostProcessing
   - Background
   - Player
-  - 
+  - Scenery
   - 
   - 
   - 

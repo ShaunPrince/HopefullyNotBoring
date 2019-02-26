@@ -6,9 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody _rb;
     public float moveSpeed = 1;
+    public float airMoveSpeed;
     public float jumpForce;
-    public float VelocityStartFallDamage;
+
     private bool isGrounded;
+    public float maxHorSpeed;
+
+    private float curMoveSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,22 +33,40 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float deltaX = Input.GetAxisRaw("Horizontal");
-        if (isGrounded)
+
+        if(isGrounded)
         {
-            _rb.velocity = new Vector3(deltaX * moveSpeed, _rb.velocity.y, 0);
+            curMoveSpeed = moveSpeed;
         }
         else
         {
-            //half movespeed control while airborne (not functional)
-            if(deltaX > 0 && _rb.velocity.x > 0 || deltaX < 0 && _rb.velocity.x < 0)
+            curMoveSpeed = airMoveSpeed;
+        }
+
+        if (deltaX > 0)
+        {
+            if (_rb.velocity.x + deltaX * curMoveSpeed <= maxHorSpeed)
             {
-                _rb.velocity = _rb.velocity;
+                _rb.AddForce(deltaX * curMoveSpeed, 0, 0, ForceMode.VelocityChange);
             }
-            else if (deltaX != 0)
+            else
             {
-                _rb.velocity = new Vector3(deltaX * moveSpeed / 2, _rb.velocity.y, 0);
+                _rb.velocity = new Vector3(maxHorSpeed, _rb.velocity.y, 0);
             }
         }
+        else if (deltaX < 0)
+        {
+            if (_rb.velocity.x + deltaX * curMoveSpeed >= -maxHorSpeed)
+            {
+                _rb.AddForce(deltaX * curMoveSpeed, 0, 0, ForceMode.VelocityChange);
+            }
+            else
+            {
+                _rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
+            }
+        }
+
+
     }
 
     private void Jump()
@@ -54,17 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Floor"))
-        {
 
-            if (Mathf.Abs(collision.relativeVelocity.y) >= VelocityStartFallDamage)
-            {
-                Debug.Log("Fall impact at rel velocity " + collision.relativeVelocity.y + " >= dmg start velocity: " + VelocityStartFallDamage);
-            }
-        }
-    }
 
     private void CheckGrounded()
     {

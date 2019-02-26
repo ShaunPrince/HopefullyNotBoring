@@ -9,11 +9,15 @@ public class PlayerAbilities : MonoBehaviour
 
     public Material[] currentColor;
 
+    public GameObject leafPile;
+    public GameObject winterStorm;
+    public float leafUpwardThrust;
+
     public int seasonAbilityUsesRemaining;
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<MeshRenderer>().material = currentColor[(int)mySeason];
+        this.GetComponentInChildren<MeshRenderer>().material = currentColor[(int)mySeason];
     }
 
     // Update is called once per frame
@@ -47,7 +51,7 @@ public class PlayerAbilities : MonoBehaviour
     private void ChangeSeason(Season newSeason)
     {
         mySeason = newSeason;
-        this.GetComponent<MeshRenderer>().material = currentColor[(int)mySeason];
+        this.GetComponentInChildren<MeshRenderer>().material = currentColor[(int)mySeason];
     }
 
     private void CheckForAndUseSeasonAbility()
@@ -61,6 +65,7 @@ public class PlayerAbilities : MonoBehaviour
                 {
                     case Season.winter:
                         Debug.Log("Winter Ability Used");
+                        WinterAbility();
                         break;
                     case Season.spring:
                         Debug.Log("Spring Ability Used");
@@ -70,6 +75,7 @@ public class PlayerAbilities : MonoBehaviour
                         break;
                     case Season.fall:
                         Debug.Log("Fall Ability Used");
+                        FallAbility();
                         break;
                 }
             }
@@ -79,5 +85,18 @@ public class PlayerAbilities : MonoBehaviour
             }
 
         }
+    }
+
+
+    private void FallAbility()
+    {
+        this.GetComponent<Rigidbody>().AddForce(Vector3.up * leafUpwardThrust , ForceMode.Impulse);
+        Instantiate(leafPile, this.transform.position + Vector3.down,Quaternion.identity);
+
+    }
+
+    private void WinterAbility()
+    {
+        Instantiate(winterStorm, this.transform);
     }
 }
