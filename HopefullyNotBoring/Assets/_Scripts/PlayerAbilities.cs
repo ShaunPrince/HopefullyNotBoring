@@ -14,10 +14,14 @@ public class PlayerAbilities : MonoBehaviour
     public float leafUpwardThrust;
 
     public int seasonAbilityUsesRemaining;
+    private CanvasUIManager canvasUI;
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponentInChildren<MeshRenderer>().material = currentColor[(int)mySeason];
+
+
+        this.GetComponent<MeshRenderer>().material = currentColor[(int)mySeason];
+        canvasUI = GameObject.Find("Canvas").GetComponent<CanvasUIManager>();
     }
 
     // Update is called once per frame
@@ -33,18 +37,22 @@ public class PlayerAbilities : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeSeason(Season.winter);
+            canvasUI.UpdateSeasonText("Winter");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ChangeSeason(Season.spring);
+            canvasUI.UpdateSeasonText("Spring");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ChangeSeason(Season.summer);
+            canvasUI.UpdateSeasonText("Summer");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             ChangeSeason(Season.fall);
+            canvasUI.UpdateSeasonText("Fall");
         }
     }
 
