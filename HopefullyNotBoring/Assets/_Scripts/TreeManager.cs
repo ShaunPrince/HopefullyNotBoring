@@ -53,11 +53,26 @@ public class TreeManager : MonoBehaviour
 
     private void Grow()
     {
+        for (int i = 0; i < 4; ++i)
+        {
+            this.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        this.transform.GetChild(4).gameObject.SetActive(false);
         if(!hasWater)
         {
             this.transform.Translate(0, .5f, 0);
             this.transform.localScale = new Vector3(2, 2, 1);
         }
 
+    }
+
+    public void Burn()
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            this.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        this.transform.GetChild(4).gameObject.SetActive(true);
+        hasWater = false;
     }
 }

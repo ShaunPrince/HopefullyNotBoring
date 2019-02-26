@@ -20,7 +20,7 @@ public class RainCloud : MonoBehaviour
         if(timeSinceSpawn <= duration)
         {
             float xOffset = Random.Range(-2.5f, 2.5f);
-            Instantiate(rainPrefab, this.transform.position + new Vector3(xOffset, -.3f, 0), Quaternion.identity, this.transform);
+            Instantiate(rainPrefab, this.transform.position + new Vector3(xOffset, -.3f, 0), Quaternion.identity);
         }
         else
         {

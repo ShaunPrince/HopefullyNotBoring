@@ -40,6 +40,11 @@ public class Water : MonoBehaviour
 
     public void Unfreeze()
     {
-
+        if(isFrozen)
+        {
+            isFrozen = false;
+            this.GetComponent<MeshRenderer>().material = water;
+            this.GetComponent<Collider>().material = normal;
+        }
     }
 }

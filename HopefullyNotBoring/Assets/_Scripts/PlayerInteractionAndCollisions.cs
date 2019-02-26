@@ -21,11 +21,13 @@ public class PlayerInteractionAndCollisions : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Floor"))
         {
 
             if (Mathf.Abs(collision.relativeVelocity.y) >= VelocityStartFallDamage)
             {
+                this.GetComponent<PlayerLife>().TakeDamage(1);
                 Debug.Log("Fall impact at rel velocity " + collision.relativeVelocity.y + " >= dmg start velocity: " + VelocityStartFallDamage);
             }
         }

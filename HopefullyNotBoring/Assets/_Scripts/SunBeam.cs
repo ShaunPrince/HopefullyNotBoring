@@ -19,5 +19,14 @@ public class SunBeam : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //Destroy(this.gameObject);
+        if (other.gameObject.CompareTag("Water"))
+        {
+            other.gameObject.GetComponent<Water>().Unfreeze();
+        }
+
+        if(other.gameObject.transform.parent != null && other.gameObject.transform.parent.CompareTag("Tree"))
+        {
+            other.gameObject.transform.parent.gameObject.GetComponent<TreeManager>().Burn();
+        }
     }
 }
