@@ -27,7 +27,9 @@ public class TreeManager : MonoBehaviour
 
     public void giveWater()
     {
+        Grow();
         hasWater = true;
+
         UpdateColors();
     }
 
@@ -47,5 +49,15 @@ public class TreeManager : MonoBehaviour
         branch1.color = newColor;
         branch2.color = newColor;
         branch3.color = newColor;
+    }
+
+    private void Grow()
+    {
+        if(!hasWater)
+        {
+            this.transform.Translate(0, .5f, 0);
+            this.transform.localScale = new Vector3(2, 2, 1);
+        }
+
     }
 }

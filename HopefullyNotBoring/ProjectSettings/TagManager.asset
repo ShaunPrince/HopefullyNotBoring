@@ -8,6 +8,7 @@ TagManager:
   - LeafPile
   - WinterStorm
   - Water
+  - Tree
   layers:
   - Default
   - TransparentFX

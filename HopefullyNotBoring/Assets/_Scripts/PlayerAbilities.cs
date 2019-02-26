@@ -11,6 +11,7 @@ public class PlayerAbilities : MonoBehaviour
 
     public GameObject leafPile;
     public GameObject winterStorm;
+    public GameObject rainCloud;
     public float leafUpwardThrust;
 
     public int seasonAbilityUsesRemaining;
@@ -20,7 +21,7 @@ public class PlayerAbilities : MonoBehaviour
     {
 
 
-        this.GetComponent<MeshRenderer>().material = currentColor[(int)mySeason];
+        this.GetComponentInChildren<MeshRenderer>().material = currentColor[(int)mySeason];
         canvasUI = GameObject.Find("Canvas").GetComponent<CanvasUIManager>();
     }
 
@@ -77,6 +78,7 @@ public class PlayerAbilities : MonoBehaviour
                         break;
                     case Season.spring:
                         Debug.Log("Spring Ability Used");
+                        SpringAbility();
                         break;
                     case Season.summer:
                         Debug.Log("Summer Ability Used");
@@ -106,5 +108,10 @@ public class PlayerAbilities : MonoBehaviour
     private void WinterAbility()
     {
         Instantiate(winterStorm, this.transform);
+    }
+
+    private void SpringAbility()
+    {
+        Instantiate(rainCloud, this.transform.position + Vector3.up*3 , Quaternion.AngleAxis(90f,Vector3.forward),this.transform);
     }
 }
