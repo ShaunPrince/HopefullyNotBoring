@@ -12,6 +12,7 @@ public class PlayerAbilities : MonoBehaviour
     public GameObject leafPile;
     public GameObject winterStorm;
     public GameObject rainCloud;
+    public GameObject sunBeam;
     public float leafUpwardThrust;
 
     public int seasonAbilityUsesRemaining;
@@ -81,6 +82,7 @@ public class PlayerAbilities : MonoBehaviour
                         SpringAbility();
                         break;
                     case Season.summer:
+                        SummerAbility();
                         Debug.Log("Summer Ability Used");
                         break;
                     case Season.fall:
@@ -113,5 +115,12 @@ public class PlayerAbilities : MonoBehaviour
     private void SpringAbility()
     {
         Instantiate(rainCloud, this.transform.position + Vector3.up*3 , Quaternion.AngleAxis(90f,Vector3.forward),this.transform);
+    }
+
+    private void SummerAbility()
+    {
+        Instantiate(sunBeam, this.transform.position + Vector3.right + Vector3.down, Quaternion.identity);
+        Instantiate(sunBeam, this.transform.position + Vector3.left + Vector3.down, Quaternion.AngleAxis(180f,Vector3.forward));
+
     }
 }
