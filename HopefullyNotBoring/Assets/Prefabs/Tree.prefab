@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c7fffcfccee2c948b1b03cf5cdbc731, type: 2}
+  - {fileID: 2100000, guid: 6bb19f63835870443b6c76d45fe8d331, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,7 +149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c7fffcfccee2c948b1b03cf5cdbc731, type: 2}
+  - {fileID: 2100000, guid: 6bb19f63835870443b6c76d45fe8d331, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,6 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7365849202245883651}
+  - component: {fileID: 1684169079981620716}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -216,6 +217,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1684169079981620716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7365849202245883650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492c7df583e05fd42b48e0b25dcbdeb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBranch: {r: 0, g: 1, b: 0.039215688, a: 0}
+  dryBranch: {r: 0.7019608, g: 0.43137258, b: 0.16078432, a: 0}
 --- !u!1 &7365849202319873003
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c7fffcfccee2c948b1b03cf5cdbc731, type: 2}
+  - {fileID: 2100000, guid: 6bb19f63835870443b6c76d45fe8d331, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
