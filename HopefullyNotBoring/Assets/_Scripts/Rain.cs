@@ -29,6 +29,12 @@ public class Rain : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else if(other.gameObject.CompareTag("River"))
+        {
+            River river = other.gameObject.GetComponent<River>();
+            river.Fill();
+            Destroy(this.gameObject);
+        }
     }
 }
 

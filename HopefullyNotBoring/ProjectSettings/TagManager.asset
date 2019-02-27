@@ -9,6 +9,7 @@ TagManager:
   - WinterStorm
   - Water
   - Tree
+  - River
   layers:
   - Default
   - TransparentFX
