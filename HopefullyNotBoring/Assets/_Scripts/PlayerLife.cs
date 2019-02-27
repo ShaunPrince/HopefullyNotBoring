@@ -13,7 +13,7 @@ public class PlayerLife : MonoBehaviour
     {
         canvasUI = GameObject.Find("Canvas").GetComponent<CanvasUIManager>();
         sceneScript = GameObject.Find("SceneManager").GetComponent<SceneScript>();
-        myHP = 3;
+        myHP = 1;
         isDead = false;
     }
 
