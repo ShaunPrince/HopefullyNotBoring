@@ -7,6 +7,7 @@ public class CanvasUIManager : MonoBehaviour
 {
     private Text playerSeason;
     private Text playerHP;
+    private Text usesRemaining;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,8 @@ public class CanvasUIManager : MonoBehaviour
         playerSeason.text = "Season: Winter";
         playerHP = this.transform.GetChild(1).transform.GetComponent<Text>();
         playerHP.text = "Health: 3";
+        usesRemaining = this.transform.GetChild(2).transform.GetComponent<Text>();
+        usesRemaining.text = "Uses: 4";
     }
 
     // Update is called once per frame
@@ -30,5 +33,10 @@ public class CanvasUIManager : MonoBehaviour
     public void UpdateHPText(string newHP)
     {
         playerHP.text = "Health: " + newHP;
+    }
+
+    public void UpdateUsesRemaining(string newUses)
+    {
+        usesRemaining.text = "Uses: " + newUses;
     }
 }

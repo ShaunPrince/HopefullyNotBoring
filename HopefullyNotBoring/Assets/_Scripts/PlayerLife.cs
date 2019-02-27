@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     private CanvasUIManager canvasUI;
+    private SceneScript sceneScript;
     private int myHP;
     private bool isDead;
     // Start is called before the first frame update
     void Start()
     {
         canvasUI = GameObject.Find("Canvas").GetComponent<CanvasUIManager>();
+        sceneScript = GameObject.Find("SceneManager").GetComponent<SceneScript>();
         myHP = 3;
         isDead = false;
     }
@@ -20,6 +22,8 @@ public class PlayerLife : MonoBehaviour
     {
         if (isDead)
             GameOver();
+        else if (Input.GetKeyDown(KeyCode.R))
+            sceneScript.ResetScene();
     }
 
     public void TakeDamage(int dmg)
@@ -36,8 +40,14 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
+    private void Restart()
+    {
+        sceneScript.ResetScene();
+    }
+
     private void GameOver()
     {
         Debug.Log("You are dead");
+        Restart();
     }
 }

@@ -71,6 +71,7 @@ public class PlayerAbilities : MonoBehaviour
             if(seasonAbilityUsesRemaining > 0)
             {
                 seasonAbilityUsesRemaining--;
+                canvasUI.UpdateUsesRemaining(seasonAbilityUsesRemaining.ToString());
                 switch (mySeason)
                 {
                     case Season.winter:
