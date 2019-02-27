@@ -24,7 +24,18 @@ public class Water : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            FindObjectOfType<PlayerMovement>().jumpForce = 3;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            FindObjectOfType<PlayerMovement>().jumpForce = 10;
+        }
     }
 
     public void Freeze()
@@ -32,6 +43,7 @@ public class Water : MonoBehaviour
         if(!isFrozen)
         {
             isFrozen = true;
+            this.GetComponent<Collider>().isTrigger = false;
             this.GetComponent<MeshRenderer>().material = ice;
             this.GetComponent<Collider>().material = frozen;
         }
@@ -43,6 +55,7 @@ public class Water : MonoBehaviour
         if(isFrozen)
         {
             isFrozen = false;
+            this.GetComponent<Collider>().isTrigger = true;
             this.GetComponent<MeshRenderer>().material = water;
             this.GetComponent<Collider>().material = normal;
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9018391602883176818}
   - component: {fileID: 6420626269457050861}
   - component: {fileID: 4177233891316651619}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3290604f7c948364fbe71d1125f1497d, type: 2}
+  - {fileID: 2100000, guid: d18de3a337fb1044cb6bf806b1f0deaa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,7 +87,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6962389527283042985}
   m_Material: {fileID: 13400000, guid: d64220e9f655a8841aa2cc214dda5347, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -106,5 +106,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 13400000, guid: d64220e9f655a8841aa2cc214dda5347, type: 2}
   frozen: {fileID: 13400000, guid: c047e4d7565f8e44b8b9acc2f66f8a62, type: 2}
-  water: {fileID: 2100000, guid: 3290604f7c948364fbe71d1125f1497d, type: 2}
+  water: {fileID: 2100000, guid: d18de3a337fb1044cb6bf806b1f0deaa, type: 2}
   ice: {fileID: 2100000, guid: b1acf0374a480d846a6eb28e75fa9a56, type: 2}
