@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                _rb.velocity = new Vector3(maxHorSpeed, _rb.velocity.y, 0);
+                //_rb.velocity = new Vector3(maxHorSpeed, _rb.velocity.y, 0);
             }
         }
         else if (deltaX < 0)
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                _rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
+                //_rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
             }
         }
 
