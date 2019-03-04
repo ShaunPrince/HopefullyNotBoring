@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    private CanvasUIManager canvasUI;
+    //private CanvasUIManager canvasUI;
     private SceneScript sceneScript;
     private int myHP;
     private bool isDead;
     // Start is called before the first frame update
     void Start()
     {
-        canvasUI = GameObject.Find("Canvas").GetComponent<CanvasUIManager>();
+        //canvasUI = GameObject.Find("Canvas").GetComponent<CanvasUIManager>();
         sceneScript = GameObject.Find("SceneManager").GetComponent<SceneScript>();
         myHP = 1;
         isDead = false;
@@ -31,7 +31,7 @@ public class PlayerLife : MonoBehaviour
         if (myHP - dmg > 0)
         {
             myHP -= dmg;
-            canvasUI.UpdateHPText(myHP.ToString());
+            //canvasUI.UpdateHPText(myHP.ToString());
         }
         else
         {

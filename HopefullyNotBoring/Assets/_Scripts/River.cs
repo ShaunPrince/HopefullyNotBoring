@@ -6,6 +6,9 @@ public class River : MonoBehaviour
 {
     public GameObject waterPrefab;
     public bool isEmpty;
+    public GameObject[] river;
+
+    private bool isTouching;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,20 @@ public class River : MonoBehaviour
             GameObject water = GameObject.Instantiate(waterPrefab, new Vector3(thisPos.x, thisPos.y + 1.0f, thisPos.z), this.transform.rotation);
             water.transform.localScale = thisScale;
             isEmpty = false;
+        }
+    }
+
+    private GameObject[] GetAdjacentRiverbeds()
+    {
+        GameObject[] riverbeds = GameObject.FindGameObjectsWithTag("River");
+        return riverbeds;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (!isTouching)
+        {
+            
         }
     }
 }
