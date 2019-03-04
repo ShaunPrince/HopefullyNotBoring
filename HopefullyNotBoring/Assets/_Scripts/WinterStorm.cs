@@ -27,7 +27,7 @@ public class WinterStorm : MonoBehaviour
 
         if (other.gameObject.CompareTag("Water"))
         {
-            foreach (Water waterBlock in other.transform.parent.GetComponentsInChildren<Water>())
+            foreach (Water waterBlock in other.transform.parent.parent.GetComponentsInChildren<Water>())
             {
                 waterBlock.Freeze();
             }
