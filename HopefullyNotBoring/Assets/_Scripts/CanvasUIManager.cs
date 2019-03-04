@@ -8,7 +8,7 @@ public class CanvasUIManager : MonoBehaviour
     private Text playerSeason;
     private Text usesRemaining;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerSeason = this.transform.GetChild(0).transform.GetComponent<Text>();
         //playerSeason.text = "Season: Winter";
