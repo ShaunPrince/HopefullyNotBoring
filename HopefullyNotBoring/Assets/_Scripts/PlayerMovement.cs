@@ -84,8 +84,8 @@ public class PlayerMovement : MonoBehaviour
 
         //still need to check for what is below it (is it a floor?)
         //current layermask ignores the Player layer (layer 10)
-        Debug.DrawRay(this.transform.position, Vector3.down * 1f, Color.red);
-        if(Physics.Raycast(this.transform.position, Vector3.down, out RaycastHit hit, 1f, ~(1 << 10)))
+        //Debug.DrawRay(this.transform.position, Vector3.down * 1f, Color.red);
+        if(Physics.Raycast(this.transform.position, Vector3.down, out RaycastHit hit, 1.1f, ~(1 << 10)))
         {            
             //Debug.Log(hit.transform.gameObject);
             isGrounded = true;
