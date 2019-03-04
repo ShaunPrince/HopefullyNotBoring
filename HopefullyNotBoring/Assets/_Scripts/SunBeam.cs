@@ -21,7 +21,10 @@ public class SunBeam : MonoBehaviour
         //Destroy(this.gameObject);
         if (other.gameObject.CompareTag("Water"))
         {
-            other.gameObject.GetComponent<Water>().Unfreeze();
+            foreach (Water waterBlock in other.transform.parent.GetComponentsInChildren<Water>())
+            {
+                waterBlock.Unfreeze();
+            }
         }
 
         if(other.gameObject.transform.parent != null && other.gameObject.transform.parent.CompareTag("Tree"))

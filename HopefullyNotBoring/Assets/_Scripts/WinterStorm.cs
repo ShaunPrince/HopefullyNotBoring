@@ -24,9 +24,14 @@ public class WinterStorm : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if (other.gameObject.CompareTag("Water"))
         {
-            other.GetComponent<Water>().Freeze();
+            foreach (Water waterBlock in other.transform.parent.GetComponentsInChildren<Water>())
+            {
+                waterBlock.Freeze();
+            }
+
         }
     }
 

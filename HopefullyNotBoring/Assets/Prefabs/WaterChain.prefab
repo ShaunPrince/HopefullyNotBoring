@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6962389527283042985
+--- !u!1 &1332382762894393318
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 743504708085978912}
-  - component: {fileID: 2723662867291962528}
-  - component: {fileID: 9018391602883176818}
-  - component: {fileID: 6420626269457050861}
-  - component: {fileID: 4177233891316651619}
-  - component: {fileID: 5882567735477914423}
-  m_Layer: 10
-  m_Name: Water
+  - component: {fileID: 1332382762894393319}
+  - component: {fileID: 1332382762894393322}
+  - component: {fileID: 1332382762894393321}
+  - component: {fileID: 1332382762894393320}
+  - component: {fileID: 1332382762894393323}
+  - component: {fileID: 1332382762894393324}
+  m_Layer: 0
+  m_Name: WaterBlock
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &743504708085978912
+--- !u!4 &1332382762894393319
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962389527283042985}
+  m_GameObject: {fileID: 1332382762894393318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1332382763548551219}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2723662867291962528
+--- !u!33 &1332382762894393322
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962389527283042985}
+  m_GameObject: {fileID: 1332382762894393318}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &9018391602883176818
+--- !u!23 &1332382762894393321
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962389527283042985}
+  m_GameObject: {fileID: 1332382762894393318}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,26 +80,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6420626269457050861
+--- !u!65 &1332382762894393320
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962389527283042985}
-  m_Material: {fileID: 13400000, guid: d64220e9f655a8841aa2cc214dda5347, type: 2}
+  m_GameObject: {fileID: 1332382762894393318}
+  m_Material: {fileID: 13400000, guid: c047e4d7565f8e44b8b9acc2f66f8a62, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4177233891316651619
+--- !u!114 &1332382762894393323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962389527283042985}
+  m_GameObject: {fileID: 1332382762894393318}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66f4d2a8c50bab3438570e08a1383994, type: 3}
@@ -109,19 +109,51 @@ MonoBehaviour:
   frozen: {fileID: 13400000, guid: c047e4d7565f8e44b8b9acc2f66f8a62, type: 2}
   water: {fileID: 2100000, guid: d18de3a337fb1044cb6bf806b1f0deaa, type: 2}
   ice: {fileID: 2100000, guid: b1acf0374a480d846a6eb28e75fa9a56, type: 2}
---- !u!54 &5882567735477914423
+  isFrozen: 0
+--- !u!54 &1332382762894393324
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962389527283042985}
+  m_GameObject: {fileID: 1332382762894393318}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1332382763548551217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332382763548551219}
+  m_Layer: 0
+  m_Name: WaterChain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1332382763548551219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332382763548551217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1332382762894393319}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
