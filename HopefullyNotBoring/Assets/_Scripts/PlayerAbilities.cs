@@ -20,10 +20,11 @@ public class PlayerAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         this.GetComponentInChildren<MeshRenderer>().material = currentColor[(int)mySeason];
         canvasUI = GameObject.Find("Canvas").GetComponent<CanvasUIManager>();
+        canvasUI.UpdateSeasonText(getSeasonPowerStr());
+        canvasUI.UpdateSeasonColor(currentColor[(int)mySeason].color);
+        canvasUI.UpdateUsesRemaining(seasonAbilityUsesRemaining.ToString());
     }
 
     // Update is called once per frame
@@ -39,22 +40,26 @@ public class PlayerAbilities : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeSeason(Season.winter);
-            canvasUI.UpdateSeasonText("Winter");
+            canvasUI.UpdateSeasonText("Snow Sphere");
+            canvasUI.UpdateSeasonColor(currentColor[(int)mySeason].color);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ChangeSeason(Season.spring);
-            canvasUI.UpdateSeasonText("Spring");
+            canvasUI.UpdateSeasonText("Revitalizing Rain");
+            canvasUI.UpdateSeasonColor(currentColor[(int)mySeason].color);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ChangeSeason(Season.summer);
-            canvasUI.UpdateSeasonText("Summer");
+            canvasUI.UpdateSeasonText("Summer Sunbeam");
+            canvasUI.UpdateSeasonColor(currentColor[(int)mySeason].color);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             ChangeSeason(Season.fall);
-            canvasUI.UpdateSeasonText("Fall");
+            canvasUI.UpdateSeasonText("Leaping Leaves");
+            canvasUI.UpdateSeasonColor(currentColor[(int)mySeason].color);
         }
     }
 
@@ -123,5 +128,25 @@ public class PlayerAbilities : MonoBehaviour
         Instantiate(sunBeam, this.transform.position + Vector3.right + Vector3.down, Quaternion.identity);
         Instantiate(sunBeam, this.transform.position + Vector3.left + Vector3.down, Quaternion.AngleAxis(180f,Vector3.forward));
 
+    }
+
+    private string getSeasonPowerStr()
+    {
+        if (mySeason == Season.winter)
+        {
+            return "Snow Sphere";
+        }
+        else if (mySeason == Season.spring)
+        {
+            return "Revitalizing Rain";
+        }
+        else if (mySeason == Season.summer)
+        {
+            return "Summer Sunbeam";
+        }
+        else
+        {
+            return "Leaping Leaves";
+        }
     }
 }
