@@ -17,12 +17,20 @@ public class Water : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        otherWaters = new HashSet<GameObject>();
+        if (isFrozen)
+        {
+            isFrozen = false;
+            Freeze();
+            foreach (Water waterBlock in this.transform.parent.parent.GetComponentsInChildren<Water>())
+            {
+                waterBlock.Freeze();
+            }
+        }
     }
 
     void Start()
     {
-        isFrozen = false;
+
 
     }
 
