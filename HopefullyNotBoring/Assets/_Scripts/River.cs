@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class River : MonoBehaviour
 {
-    public GameObject waterPrefab;
-    public bool isEmpty;
-    public GameObject[] river;
-
-    private bool isTouching;
+    private GameObject waterBlock;
     // Start is called before the first frame update
     void Start()
     {
-
+        waterBlock = this.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -21,29 +17,11 @@ public class River : MonoBehaviour
         
     }
 
-    public void Fill()
+    public void fillWater()
     {
-        if (isEmpty)
-        {
-            Vector3 thisPos = this.transform.position;
-            Vector3 thisScale = this.transform.localScale;
-            GameObject water = GameObject.Instantiate(waterPrefab, new Vector3(thisPos.x, thisPos.y + 1.0f, thisPos.z), this.transform.rotation);
-            water.transform.localScale = thisScale;
-            isEmpty = false;
-        }
-    }
-
-    private GameObject[] GetAdjacentRiverbeds()
-    {
-        GameObject[] riverbeds = GameObject.FindGameObjectsWithTag("River");
-        return riverbeds;
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (!isTouching)
-        {
-            
-        }
+        waterBlock.SetActive(true);
+        waterBlock.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.0f, this.transform.position.z);
+        waterBlock.transform.localScale = this.transform.localScale;
+        waterBlock.transform.rotation = this.transform.rotation;
     }
 }

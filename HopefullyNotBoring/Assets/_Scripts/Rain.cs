@@ -31,8 +31,8 @@ public class Rain : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("River"))
         {
-            River river = other.gameObject.GetComponent<River>();
-            river.Fill();
+            RiverManager riverChain = other.gameObject.transform.parent.GetComponent<RiverManager>();
+            riverChain.FillAll();
             Destroy(this.gameObject);
         }
     }
