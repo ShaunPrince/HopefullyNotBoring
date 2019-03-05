@@ -21,7 +21,7 @@ public class River : MonoBehaviour
     {
         waterBlock.SetActive(true);
         waterBlock.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.0f, this.transform.position.z);
-        waterBlock.transform.localScale = this.transform.localScale;
+        //waterBlock.transform.localScale = this.transform.localScale;
         waterBlock.transform.rotation = this.transform.rotation;
     }
 }
