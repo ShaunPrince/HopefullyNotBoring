@@ -61,6 +61,12 @@ public class PlayerAbilities : MonoBehaviour
             canvasUI.UpdateSeasonText("Leaping Leaves");
             canvasUI.UpdateSeasonColor(currentColor[(int)mySeason].color);
         }
+        else if(Input.GetKeyDown(KeyCode.Q))
+        {
+            ChangeSeason((Season)(((int)mySeason + 1) % 4));
+            canvasUI.UpdateSeasonText(getSeasonPowerStr());
+            canvasUI.UpdateSeasonColor(currentColor[(int)mySeason].color);
+        }
     }
 
     private void ChangeSeason(Season newSeason)
