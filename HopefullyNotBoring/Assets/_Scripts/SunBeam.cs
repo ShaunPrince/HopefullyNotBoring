@@ -7,7 +7,7 @@ public class SunBeam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<Rigidbody>().velocity = this.transform.right * 10;
+        this.GetComponent<Rigidbody>().velocity = this.transform.right * 18;
     }
 
     // Update is called once per frame
