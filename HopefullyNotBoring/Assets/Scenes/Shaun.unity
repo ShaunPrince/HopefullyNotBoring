@@ -1548,6 +1548,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2951323673282851446, guid: 4ef2710252b03aa48a63c41cb01b9005,
+        type: 3}
+      propertyPath: leafUpwardThrust
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2951323673282851444, guid: 4ef2710252b03aa48a63c41cb01b9005,
         type: 3}
       propertyPath: VelocityStartFallDamage

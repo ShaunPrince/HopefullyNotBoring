@@ -16,11 +16,12 @@ public class LeafPile : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
             PlayerInteractionAndCollisions.canTakeFallDamage = false;
+            //Debug.Log(PlayerInteractionAndCollisions.canTakeFallDamage);
         }
     }
 
@@ -29,6 +30,8 @@ public class LeafPile : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerInteractionAndCollisions.canTakeFallDamage = true;
+            //Debug.Log(PlayerInteractionAndCollisions.canTakeFallDamage);
         }
+
     }
 }

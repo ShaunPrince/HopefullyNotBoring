@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Tree
   - River
+  - KillItem
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Background
   - Player
   - Scenery
-  - 
+  - NoPlayerCollision
   - 
   - 
   - 
