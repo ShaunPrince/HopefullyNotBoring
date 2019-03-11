@@ -641,6 +641,16 @@ PrefabInstance:
       propertyPath: isFrozen
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3117964906588576813, guid: 45c4a5755c996d243ae20b31e4d06404,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117964906588576813, guid: 45c4a5755c996d243ae20b31e4d06404,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45c4a5755c996d243ae20b31e4d06404, type: 3}
 --- !u!1001 &371613653
@@ -1572,7 +1582,7 @@ PrefabInstance:
     - target: {fileID: 2951323673282851444, guid: 4ef2710252b03aa48a63c41cb01b9005,
         type: 3}
       propertyPath: VelocityStartFallDamage
-      value: 20
+      value: 25.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef2710252b03aa48a63c41cb01b9005, type: 3}
