@@ -48,11 +48,6 @@ public class Water : MonoBehaviour
             FindObjectOfType<PlayerMovement>().jumpForce = 5;
         }
 
-        if(other.gameObject.CompareTag("River") && this.isFrozen == false)
-        {
-            other.GetComponentInParent<RiverManager>().FillAll();
-        }
-
     }
 
     private void OnTriggerExit(Collider other)
