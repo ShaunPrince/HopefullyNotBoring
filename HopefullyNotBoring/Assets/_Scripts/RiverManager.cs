@@ -9,14 +9,7 @@ public class RiverManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int childrenLength = this.transform.childCount;
-        riverPieces = new Transform[childrenLength];
-        for (int i = 0; i < childrenLength; ++i)
-        {
-            riverPieces[i] = this.transform.GetChild(i);
-            Transform riverPiece = riverPieces[i];
-            riverPiece.GetChild(0).gameObject.SetActive(riverFilled); // Sets water block child of the river piece to be active or inactive
-        }
+        
     }
 
     // Update is called once per frame
@@ -29,14 +22,17 @@ public class RiverManager : MonoBehaviour
     {
         if (riverFilled == false)
         {
-            int size = riverPieces.Length;
-            for (int i = 0; i < size; ++i)
+            for(int i = 0; i < this.transform.childCount; ++i)
             {
-                Transform riverPiece = riverPieces[i];
-                River riverScript = riverPiece.GetComponent<River>();
-                riverScript.fillWater();
+                this.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            foreach (River r in this.transform.GetComponentsInChildren<River>())
+            {
+                r.fillWater();
             }
             riverFilled = true;
+
+
         }
     }
 }
