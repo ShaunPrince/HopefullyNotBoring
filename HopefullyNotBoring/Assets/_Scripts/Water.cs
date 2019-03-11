@@ -59,7 +59,7 @@ public class Water : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<PlayerMovement>().jumpForce = 10;
+            FindObjectOfType<PlayerMovement>().jumpForce = 15;
         }
     }
 
