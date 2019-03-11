@@ -114,6 +114,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void FallAbility()
     {
+        this.GetComponent<Rigidbody>().velocity = new Vector3(this.GetComponent<Rigidbody>().velocity.x, 0, 0);
         this.GetComponent<Rigidbody>().AddForce(Vector3.up * leafUpwardThrust , ForceMode.Impulse);
         Instantiate(leafPile, this.transform.position + Vector3.down,Quaternion.identity);
 
