@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float curMoveSpeed;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,13 @@ public class PlayerMovement : MonoBehaviour
             _rb.WakeUp();
         }
         CheckGrounded();
-        Move();
         Jump();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+
     }
 
 
@@ -51,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_rb.velocity.x + deltaX * curMoveSpeed <= maxHorSpeed)
             {
-                _rb.AddForce(deltaX * curMoveSpeed, 0, 0, ForceMode.VelocityChange);
+                _rb.AddForce(deltaX * curMoveSpeed, 0, .1f, ForceMode.VelocityChange);
             }
             else
             {
@@ -68,6 +75,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 //_rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
             }
+        }
+        else if (isGrounded)
+        {
+            _rb.velocity = new Vector3(0,_rb.velocity.y,0);
         }
 
 
