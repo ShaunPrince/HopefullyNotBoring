@@ -19,20 +19,22 @@ public class Rain : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if(other.gameObject.transform.parent != null && other.gameObject.transform.parent.gameObject.CompareTag("Tree"))
-        {
-            Debug.Log("HitTree");
-            other.gameObject.transform.parent.gameObject.GetComponent<TreeManager>().giveWater();
-            Destroy(this.gameObject);
-        }
+
         if(other.gameObject.CompareTag("Floor"))
         {
             Destroy(this.gameObject);
         }
-        else if(other.gameObject.CompareTag("River"))
+
+        if(other.gameObject.CompareTag("River"))
         {
             RiverManager riverChain = other.gameObject.transform.parent.GetComponent<RiverManager>();
             riverChain.FillAll();
+            Destroy(this.gameObject);
+        }
+        if(other.gameObject.transform.parent != null && other.gameObject.transform.parent.parent != null && other.gameObject.transform.parent.parent.gameObject.CompareTag("Tree"))
+        {
+            Debug.Log("HitTree");
+            other.gameObject.transform.parent.parent.gameObject.GetComponent<TreeManager>().giveWater();
             Destroy(this.gameObject);
         }
     }

@@ -27,9 +27,9 @@ public class SunBeam : MonoBehaviour
             }
         }
 
-        if(other.gameObject.transform.parent != null && other.gameObject.transform.parent.CompareTag("Tree"))
+        if(other.gameObject.transform.parent != null && other.gameObject.transform.parent.parent != null && other.gameObject.transform.parent.parent.gameObject.CompareTag("Tree"))
         {
-            other.gameObject.transform.parent.gameObject.GetComponent<TreeManager>().Burn();
+            other.gameObject.transform.parent.parent.gameObject.GetComponent<TreeManager>().Burn();
         }
     }
 }

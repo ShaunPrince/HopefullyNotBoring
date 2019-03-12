@@ -13,9 +13,9 @@ public class TreeManager : MonoBehaviour
     void Start()
     {
         hasWater = false;
-        branch1 = this.transform.GetChild(1).transform.GetComponent<Renderer>().material;
-        branch2 = this.transform.GetChild(2).transform.GetComponent<Renderer>().material;
-        branch3 = this.transform.GetChild(3).transform.GetComponent<Renderer>().material;
+        branch1 = this.transform.GetChild(0).GetChild(1).transform.GetComponent<Renderer>().material;
+        branch2 = this.transform.GetChild(0).GetChild(2).transform.GetComponent<Renderer>().material;
+        branch3 = this.transform.GetChild(0).GetChild(3).transform.GetComponent<Renderer>().material;
         UpdateColors();
     }
 
@@ -55,14 +55,16 @@ public class TreeManager : MonoBehaviour
     {
         for (int i = 0; i < 4; ++i)
         {
-            this.transform.GetChild(i).gameObject.SetActive(true);
+            this.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
         }
-        this.transform.GetChild(4).gameObject.SetActive(false);
+        this.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
         if(!hasWater)
         {
-            this.transform.Translate(0, .5f, 0);
-            this.transform.localScale = new Vector3(2, 2, 1);
+            this.GetComponentInChildren<Animation>().Play();
+            //this.transform.Translate(0, .5f, 0);
         }
+
+
 
     }
 
@@ -70,9 +72,9 @@ public class TreeManager : MonoBehaviour
     {
         for (int i = 0; i < 4; ++i)
         {
-            this.transform.GetChild(i).gameObject.SetActive(false);
+            this.transform.GetChild(0).GetChild(i).gameObject.SetActive(false);
         }
-        this.transform.GetChild(4).gameObject.SetActive(true);
+        this.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
         hasWater = false;
     }
 }

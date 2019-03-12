@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_rb.IsSleeping())
+        {
+            _rb.WakeUp();
+        }
         CheckGrounded();
         Move();
         Jump();
