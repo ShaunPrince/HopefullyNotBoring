@@ -45,7 +45,7 @@ public class Water : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<PlayerMovement>().jumpForce = 5;
+            FindObjectOfType<PlayerMovement>().jumpForce = FindObjectOfType<PlayerMovement>().inWaterJumpForce;
         }
 
         if(other.gameObject.CompareTag("River") && this.isFrozen == false)
@@ -59,7 +59,7 @@ public class Water : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<PlayerMovement>().jumpForce = 15;
+            FindObjectOfType<PlayerMovement>().jumpForce = FindObjectOfType<PlayerMovement>().defaultJumpForce;
         }
     }
 
