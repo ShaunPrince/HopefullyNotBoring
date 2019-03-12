@@ -31,6 +31,8 @@ public class PauseController : MonoBehaviour
             {
                 panel = GameObject.Find("Panel");
             }
+            GameObject instructions = panel.transform.GetChild(2).gameObject;
+            DeavtivateTutorial(instructions);
             panel.SetActive(false);
         }
         else
@@ -44,5 +46,15 @@ public class PauseController : MonoBehaviour
     public void QuitGame()
     {
         UnityEngine.Application.Quit();
+    }
+
+    private void DeavtivateTutorial(GameObject tutorial)
+    {
+        int panels = tutorial.transform.childCount;
+        for (int i = 1; i < panels; ++i)
+        {
+            GameObject screen = tutorial.transform.GetChild(i).gameObject;
+            screen.SetActive(false);
+        }
     }
 }
