@@ -13,7 +13,7 @@ public class StartGame : MonoBehaviour
 
     public void GoToLevel1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level1Dup");
     }
 
     // Update is called once per frame

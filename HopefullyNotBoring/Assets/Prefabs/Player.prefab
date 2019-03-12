@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   airMoveSpeed: 0.5
-  jumpForce: 10
+  jumpForce: 15
   isGrounded: 0
   maxHorSpeed: 5
 --- !u!114 &2951323673282851446
@@ -186,7 +186,7 @@ MonoBehaviour:
   rainCloud: {fileID: 6049386445382377793, guid: 44ce77a369ec17b469144682543b6fd5,
     type: 3}
   sunBeam: {fileID: 8249772970002794438, guid: 8d2d3c04e6d8c7f40a39714995679509, type: 3}
-  leafUpwardThrust: 4
+  leafUpwardThrust: 10
   seasonAbilityUsesRemaining: 4
 --- !u!114 &2951323673282851447
 MonoBehaviour:
@@ -212,4 +212,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e893db5168077fc4da9dab83e31807f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VelocityStartFallDamage: 10
+  VelocityStartFallDamage: 25.09
