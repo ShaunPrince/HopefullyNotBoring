@@ -24,7 +24,11 @@ public class RiverManager : MonoBehaviour
         {
             for(int i = 0; i < this.transform.childCount; ++i)
             {
-                this.transform.GetChild(i).gameObject.SetActive(true);
+                for(int j = 0; j < this.transform.GetChild(i).childCount; ++j)
+                {
+                    this.transform.GetChild(i).GetChild(j).gameObject.SetActive(true);
+                }
+
             }
             foreach (River r in this.transform.GetComponentsInChildren<River>())
             {
