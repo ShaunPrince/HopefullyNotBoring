@@ -1617,7 +1617,7 @@ PrefabInstance:
     - target: {fileID: 6342545820941077770, guid: 31e19d7ab566fc9429d41f156ffd39ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.82
+      value: -17.08
       objectReference: {fileID: 0}
     - target: {fileID: 6342545820941077770, guid: 31e19d7ab566fc9429d41f156ffd39ae,
         type: 3}
@@ -2332,12 +2332,12 @@ PrefabInstance:
     - target: {fileID: 2951323673282851443, guid: 4ef2710252b03aa48a63c41cb01b9005,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: -39.3
       objectReference: {fileID: 0}
     - target: {fileID: 2951323673282851443, guid: 4ef2710252b03aa48a63c41cb01b9005,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: 10.3
       objectReference: {fileID: 0}
     - target: {fileID: 2951323673282851443, guid: 4ef2710252b03aa48a63c41cb01b9005,
         type: 3}
@@ -2383,6 +2383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951323673282851441, guid: 4ef2710252b03aa48a63c41cb01b9005,
+        type: 3}
+      propertyPath: inWaterJumpForce
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef2710252b03aa48a63c41cb01b9005, type: 3}
