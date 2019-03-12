@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float curMoveSpeed;
 
+    private Vector3 normalVect;
+
+    private float deltaX;
+
+    private RaycastHit useRayHit = new RaycastHit();
+
 
 
     // Start is called before the first frame update
@@ -25,11 +31,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_rb.IsSleeping())
+        Debug.DrawRay(this.transform.position, Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * 100, Color.yellow);
+        if (_rb.IsSleeping())
         {
             _rb.WakeUp();
         }
         CheckGrounded();
+        deltaX = Input.GetAxisRaw("Horizontal");
         Jump();
     }
 
@@ -43,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        float deltaX = Input.GetAxisRaw("Horizontal");
+
 
         if(isGrounded)
         {
@@ -58,27 +66,64 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_rb.velocity.x + deltaX * curMoveSpeed <= maxHorSpeed)
             {
-                _rb.AddForce(deltaX * curMoveSpeed, 0, .1f, ForceMode.VelocityChange);
+                //_rb.velocity = _rb.velocity +  Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX;
+                _rb.AddForce(Quaternion.AngleAxis(-90,Vector3.forward)*normalVect*curMoveSpeed*deltaX, ForceMode.VelocityChange);
+                // Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * 10, Color.yellow);
+
             }
             else
             {
-                //_rb.velocity = new Vector3(maxHorSpeed, _rb.velocity.y, 0);
+                _rb.velocity = new Vector3(maxHorSpeed, _rb.velocity.y, 0);
             }
         }
         else if (deltaX < 0)
         {
             if (_rb.velocity.x + deltaX * curMoveSpeed >= -maxHorSpeed)
             {
-                _rb.AddForce(deltaX * curMoveSpeed, 0, 0, ForceMode.VelocityChange);
+                //_rb.velocity = _rb.velocity + Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX;
+                _rb.AddForce(Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX, ForceMode.VelocityChange);
+                Debug.Log(Quaternion.AngleAxis(-90, Vector3.forward) * normalVect);
+                
             }
             else
             {
-                //_rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
+                _rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
             }
         }
         else if (isGrounded)
         {
-            _rb.velocity = new Vector3(0,_rb.velocity.y,0);
+            if(useRayHit.collider.gameObject.CompareTag("Water"))
+            {
+                if(useRayHit.collider.gameObject.GetComponent<Water>().isFrozen == true)
+                {
+
+                }
+                else
+                {
+                    if(_rb.velocity.y < this.gameObject.GetComponent<PlayerInteractionAndCollisions>().VelocityStartFallDamage)
+                    {
+                        _rb.velocity = Vector3.zero;
+                    }
+                    else
+                    {
+                        _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+                    }
+
+                }
+            }
+            else
+            {
+                if (_rb.velocity.y < this.gameObject.GetComponent<PlayerInteractionAndCollisions>().VelocityStartFallDamage)
+                {
+                    _rb.velocity = Vector3.zero;
+                }
+                else
+                {
+                    _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+                }
+
+
+            }
         }
 
 
@@ -99,15 +144,67 @@ public class PlayerMovement : MonoBehaviour
 
         //still need to check for what is below it (is it a floor?)
         //current layermask ignores the Player layer (layer 10)
-        //Debug.DrawRay(this.transform.position, Vector3.down * 1f, Color.red);
-        if(Physics.Raycast(this.transform.position, Vector3.down, out RaycastHit hit, 1.2f, ~(1 << 10)))
-        {            
+        Debug.DrawRay(this.transform.position, Vector3.down * 1.2f, Color.red);
+        Debug.DrawRay(this.transform.position + Vector3.right * .5f, Vector3.down * 1.2f, Color.red);
+        Debug.DrawRay(this.transform.position + Vector3.left * .5f, Vector3.down * 1.2f, Color.red);
+        bool mid = Physics.Raycast(this.transform.position, Vector3.down, out RaycastHit hitM, 1.2f, ~(1 << 10));
+        bool right = Physics.Raycast(this.transform.position + Vector3.right * .5f, Vector3.down, out RaycastHit hitR, 1.2f, ~(1 << 10));
+        bool left = Physics.Raycast(this.transform.position + Vector3.left * .5f, Vector3.down, out RaycastHit hitL, 1.2f, ~(1 << 10));
+        bool beenSet = false;
+        useRayHit = new RaycastHit();
+
+        if (mid)
+        {
+            useRayHit = hitM;
+            beenSet = true;
+        }
+
+        if(left)
+        {
+            if(beenSet)
+            {
+                if(hitL.distance < useRayHit.distance)
+                {
+                    useRayHit = hitL;
+                }
+            }
+            else
+            {
+                useRayHit = hitL;
+                beenSet = true;
+            }
+
+        }
+
+        if(right)
+        {
+            if(beenSet)
+            {
+                if(hitR.distance < useRayHit.distance)
+                {
+                    useRayHit = hitR;
+                }
+            }
+            else
+            {
+                useRayHit = hitR;
+                beenSet = true;
+            }
+        }
+
+
+        if(beenSet)
+        {
             //Debug.Log(hit.transform.gameObject);
+            //_rb.useGravity = false;
+            Debug.Log(useRayHit.normal);
+            normalVect = useRayHit.normal;
             isGrounded = true;
         }
         else
         {
-
+            //_rb.useGravity = true;
+            normalVect = Vector3.up;
             isGrounded = false;
         }
         //Debug.Log(isGrounded);
