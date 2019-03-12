@@ -2317,6 +2317,11 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 13.34
       objectReference: {fileID: 0}
+    - target: {fileID: 2951323673282851440, guid: 4ef2710252b03aa48a63c41cb01b9005,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef2710252b03aa48a63c41cb01b9005, type: 3}
 --- !u!1001 &1576718986
