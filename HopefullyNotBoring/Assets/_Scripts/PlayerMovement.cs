@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float curMoveSpeed;
 
-    public Vector3 normalVect;
+    private Vector3 normalVect;
 
     private float deltaX;
 
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.DrawRay(this.transform.position, Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * 100, Color.yellow);
+        Debug.DrawRay(this.transform.position, Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * 100, Color.yellow);
         if (_rb.IsSleeping())
         {
             _rb.WakeUp();
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (deltaX > 0)
         {
-            if (Mathf.Abs((Quaternion.AngleAxis(-90, Vector3.forward) * normalVect ).magnitude * _rb.velocity.x + deltaX * curMoveSpeed) < maxHorSpeed)
+            if (_rb.velocity.x + deltaX * curMoveSpeed <= maxHorSpeed)
             {
                 //_rb.velocity = _rb.velocity +  Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX;
                 _rb.AddForce(Quaternion.AngleAxis(-90,Vector3.forward)*normalVect*curMoveSpeed*deltaX, ForceMode.VelocityChange);
@@ -85,15 +85,13 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-
-
+                _rb.velocity = new Vector3(maxHorSpeed, _rb.velocity.y, 0);
             }
         }
         else if (deltaX < 0)
         {
-            if ((Quaternion.AngleAxis(-90, Vector3.forward) * normalVect ).magnitude * _rb.velocity.x + deltaX * curMoveSpeed > -maxHorSpeed)
+            if (_rb.velocity.x + deltaX * curMoveSpeed >= -maxHorSpeed)
             {
-                //Debug.Log((Quaternion.AngleAxis(-90, Vector3.forward) * normalVect ).magnitude);
                 //_rb.velocity = _rb.velocity + Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX;
                 _rb.AddForce(Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX, ForceMode.VelocityChange);
                 //Debug.Log(Quaternion.AngleAxis(-90, Vector3.forward) * normalVect);
@@ -101,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //_rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
+                _rb.velocity = new Vector3(-maxHorSpeed, _rb.velocity.y, 0);
             }
         }
         else if (isGrounded)
@@ -112,23 +110,16 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (_rb.velocity.y < this.gameObject.GetComponent<PlayerInteractionAndCollisions>().VelocityStartFallDamage)
                     {
-                        _rb.velocity = new Vector3 (_rb.velocity.x , _rb.velocity.y , 0);
-                    }
-                    else
-                    {
-                        _rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.y, 0);
-                    }
-                }
-                else
-                {
-                    if (_rb.velocity.y < this.gameObject.GetComponent<PlayerInteractionAndCollisions>().VelocityStartFallDamage)
-                    {
                         _rb.velocity = Vector3.zero;
                     }
                     else
                     {
                         _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
                     }
+                }
+                else
+                {
+
 
                 }
             }
@@ -142,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
                 }
+
 
             }
         }
@@ -168,9 +160,9 @@ public class PlayerMovement : MonoBehaviour
 
         //still need to check for what is below it (is it a floor?)
         //current layermask ignores the Player layer (layer 10)
-        //Debug.DrawRay(this.transform.position, Vector3.down * 1.01f, Color.red);
-        //Debug.DrawRay(this.transform.position + Vector3.right * .5f, Vector3.down * 1.01f, Color.red);
-        //Debug.DrawRay(this.transform.position + Vector3.left * .5f, Vector3.down * 1.01f, Color.red);
+        Debug.DrawRay(this.transform.position, Vector3.down * 1.01f, Color.red);
+        Debug.DrawRay(this.transform.position + Vector3.right * .5f, Vector3.down * 1.01f, Color.red);
+        Debug.DrawRay(this.transform.position + Vector3.left * .5f, Vector3.down * 1.01f, Color.red);
         bool mid = Physics.Raycast(this.transform.position, Vector3.down, out RaycastHit hitM, 1.01f, layersToRayHit);
         bool right = Physics.Raycast(this.transform.position + Vector3.right * .5f, Vector3.down, out RaycastHit hitR, 1.01f,layersToRayHit);
         bool left = Physics.Raycast(this.transform.position + Vector3.left * .5f, Vector3.down, out RaycastHit hitL, 1.01f, layersToRayHit);
