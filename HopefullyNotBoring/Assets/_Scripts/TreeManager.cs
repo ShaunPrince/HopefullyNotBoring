@@ -77,4 +77,9 @@ public class TreeManager : MonoBehaviour
         this.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
         hasWater = false;
     }
+
+    public bool GetHasWater()
+    {
+        return hasWater;
+    }
 }
