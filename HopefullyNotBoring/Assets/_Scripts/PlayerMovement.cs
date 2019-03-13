@@ -147,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
+            _rb.velocity = new Vector3(_rb.velocity.x, 0, 0);
             isGrounded = false;
             isJumping = true;
             _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
