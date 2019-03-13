@@ -33,7 +33,7 @@ public class Rain : MonoBehaviour
         }
         if(other.gameObject.transform.parent != null && other.gameObject.transform.parent.parent != null && other.gameObject.transform.parent.parent.gameObject.CompareTag("Tree"))
         {
-            Debug.Log("HitTree");
+            //Debug.Log("HitTree");
             other.gameObject.transform.parent.parent.gameObject.GetComponent<TreeManager>().giveWater();
             Destroy(this.gameObject);
         }

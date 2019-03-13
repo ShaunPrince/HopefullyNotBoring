@@ -86,19 +86,19 @@ public class PlayerAbilities : MonoBehaviour
                 switch (mySeason)
                 {
                     case Season.winter:
-                        Debug.Log("Winter Ability Used");
+                        //Debug.Log("Winter Ability Used");
                         WinterAbility();
                         break;
                     case Season.spring:
-                        Debug.Log("Spring Ability Used");
+                        //Debug.Log("Spring Ability Used");
                         SpringAbility();
                         break;
                     case Season.summer:
                         SummerAbility();
-                        Debug.Log("Summer Ability Used");
+                        //Debug.Log("Summer Ability Used");
                         break;
                     case Season.fall:
-                        Debug.Log("Fall Ability Used");
+                        //Debug.Log("Fall Ability Used");
                         FallAbility();
                         break;
                 }

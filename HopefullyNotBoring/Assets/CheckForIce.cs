@@ -18,7 +18,7 @@ public class CheckForIce : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.gameObject);
+        //Debug.Log(other.gameObject);
         if (other.gameObject.GetComponent<Water>() != null)
         {
             if (other.gameObject.GetComponent<Water>().isFrozen == true)
