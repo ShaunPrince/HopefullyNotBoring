@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float curMoveSpeed;
 
-    private Vector3 normalVect;
+    public Vector3 normalVect;
 
     private float deltaX;
 
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(this.transform.position, Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * 100, Color.yellow);
+        //Debug.DrawRay(this.transform.position, Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * 100, Color.yellow);
         if (_rb.IsSleeping())
         {
             _rb.WakeUp();
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (deltaX > 0)
         {
-            if (_rb.velocity.x + deltaX * curMoveSpeed <= maxHorSpeed)
+            if ((Quaternion.AngleAxis(-90, Vector3.forward) * normalVect).magnitude * _rb.velocity.x + deltaX * curMoveSpeed < maxHorSpeed)
             {
                 //_rb.velocity = _rb.velocity +  Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX;
                 _rb.AddForce(Quaternion.AngleAxis(-90,Vector3.forward)*normalVect*curMoveSpeed*deltaX, ForceMode.VelocityChange);
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (deltaX < 0)
         {
-            if (_rb.velocity.x + deltaX * curMoveSpeed >= -maxHorSpeed)
+            if ((Quaternion.AngleAxis(-90, Vector3.forward) * normalVect).magnitude * _rb.velocity.x + deltaX * curMoveSpeed > -maxHorSpeed)
             {
                 //_rb.velocity = _rb.velocity + Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX;
                 _rb.AddForce(Quaternion.AngleAxis(-90, Vector3.forward) * normalVect * curMoveSpeed * deltaX, ForceMode.VelocityChange);
@@ -110,11 +110,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (_rb.velocity.y < this.gameObject.GetComponent<PlayerInteractionAndCollisions>().VelocityStartFallDamage)
                     {
-                        _rb.velocity = Vector3.zero;
+                        _rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.y, 0);
                     }
                     else
                     {
-                        _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+                        _rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.y, 0);
                     }
                 }
                 else

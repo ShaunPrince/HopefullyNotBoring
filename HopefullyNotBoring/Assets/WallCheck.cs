@@ -10,7 +10,7 @@ public class WallCheck : MonoBehaviour
     void Start()
     {
         _rb = this.GetComponentInParent<Rigidbody>();
-        Debug.Log(_rb.gameObject);
+        //Debug.Log(_rb.gameObject);
     }
 
     private void OnTriggerStay(Collider other)
