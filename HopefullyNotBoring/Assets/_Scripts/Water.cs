@@ -75,6 +75,13 @@ public class Water : MonoBehaviour
 
         }
 
+
+
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+
     }
 
     public void Unfreeze()
