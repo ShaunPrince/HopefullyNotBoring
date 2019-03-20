@@ -115,7 +115,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b1acf0374a480d846a6eb28e75fa9a56, type: 2}
+  - {fileID: 2100000, guid: 0db639caf1b4ff44da92e9076f8566f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   airMoveSpeed: 2
-  jumpForce: 10
+  jumpForce: 15
   defaultJumpForce: 10
   inWaterJumpForce: 5
   isJumping: 0
@@ -241,10 +241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySeason: 0
   currentColor:
-  - {fileID: 2100000, guid: b1acf0374a480d846a6eb28e75fa9a56, type: 2}
-  - {fileID: 2100000, guid: 3c7fffcfccee2c948b1b03cf5cdbc731, type: 2}
-  - {fileID: 2100000, guid: 752e177a844a27f4391b77477f936082, type: 2}
-  - {fileID: 2100000, guid: 8f371a46745495b4e86beecd71266c6d, type: 2}
+  - {fileID: 2100000, guid: 6280311ff2ac747429517c4011de80eb, type: 2}
+  - {fileID: 2100000, guid: 6b8a5c2ae57c57e43a5f61c8d8eafd43, type: 2}
+  - {fileID: 2100000, guid: 7b7a224f2435cad40a574a246db42c81, type: 2}
+  - {fileID: 2100000, guid: d508e628a2371ef42bcfd26310fc6318, type: 2}
   leafPile: {fileID: 7166232917422838527, guid: 94a6c6ffd08dc6a42ae4d0f0f5a435a3,
     type: 3}
   winterStorm: {fileID: 1834696701891262072, guid: 6f1e3d2d25202f3448237b21cf8acf0a,
@@ -252,8 +252,8 @@ MonoBehaviour:
   rainCloud: {fileID: 6049386445382377793, guid: 44ce77a369ec17b469144682543b6fd5,
     type: 3}
   sunBeam: {fileID: 8249772970002794438, guid: 8d2d3c04e6d8c7f40a39714995679509, type: 3}
-  leafUpwardThrust: 10
-  seasonAbilityUsesRemaining: 4
+  leafUpwardThrust: 15
+  seasonAbilityUsesRemaining: 9
 --- !u!114 &2951323673282851447
 MonoBehaviour:
   m_ObjectHideFlags: 0

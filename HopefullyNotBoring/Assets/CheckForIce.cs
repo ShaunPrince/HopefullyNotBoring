@@ -23,7 +23,7 @@ public class CheckForIce : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Water>().isFrozen == true)
             {
-                Debug.Log(this.gameObject);
+                //Debug.Log(this.gameObject);
                 this.transform.parent.Translate(this.GetComponentInParent<PlayerMovement>().normalVect * .1f);
             }
         }
