@@ -1221,11 +1221,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2.75
       objectReference: {fileID: 0}
-    - target: {fileID: 2332997524745461749, guid: 31e19d7ab566fc9429d41f156ffd39ae,
-        type: 3}
-      propertyPath: riverFilled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9062785784793069779, guid: 31e19d7ab566fc9429d41f156ffd39ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1276,8 +1271,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2332997524745461749, guid: 31e19d7ab566fc9429d41f156ffd39ae,
+        type: 3}
+      propertyPath: riverFilled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31e19d7ab566fc9429d41f156ffd39ae, type: 3}
+--- !u!114 &832391942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8432013847819266104, guid: 754fc92dbfcf5d14590333d2c4ff84e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1954608159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbb7c64f32c8724399da5618b39e36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &850772652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,15 +2296,15 @@ PrefabInstance:
       propertyPath: seasonAbilityUsesRemaining
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 2951323673282851444, guid: 4ef2710252b03aa48a63c41cb01b9005,
-        type: 3}
-      propertyPath: VelocityStartFallDamage
-      value: 25.09
-      objectReference: {fileID: 0}
     - target: {fileID: 2951323673282851441, guid: 4ef2710252b03aa48a63c41cb01b9005,
         type: 3}
       propertyPath: jumpForce
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951323673282851444, guid: 4ef2710252b03aa48a63c41cb01b9005,
+        type: 3}
+      propertyPath: VelocityStartFallDamage
+      value: 25.09
       objectReference: {fileID: 0}
     - target: {fileID: 2951323671622946614, guid: 4ef2710252b03aa48a63c41cb01b9005,
         type: 3}
@@ -2472,6 +2484,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858558252233038464, guid: 549c762ff25f74a4da4a1cedbeda74dc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832391942}
+    - target: {fileID: 2858558252233038464, guid: 549c762ff25f74a4da4a1cedbeda74dc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858558252233038464, guid: 549c762ff25f74a4da4a1cedbeda74dc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 549c762ff25f74a4da4a1cedbeda74dc, type: 3}
