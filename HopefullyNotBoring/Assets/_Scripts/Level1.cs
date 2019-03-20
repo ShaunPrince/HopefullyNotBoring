@@ -5,28 +5,48 @@ using UnityEngine;
 public class Level1 : MonoBehaviour
 {
     public GameObject winPanel;
+    public string nextLvl;
     //public GameObject sceneManager;
 
     //private SceneScript sceneScript;
-    private TreeManager winTree;
+    private GameObject[] allTrees;
+    private TreeManager[] winTrees;
     private float time;
     // Start is called before the first frame update
     void Start()
     {
-        winTree = GameObject.Find("Tree").GetComponent<TreeManager>();
+        allTrees = GameObject.FindGameObjectsWithTag("Tree");
+        int size = allTrees.Length;
+        winTrees = new TreeManager[allTrees.Length];
+        for (int i = 0; i < size; ++i)
+        {
+            winTrees[i] = allTrees[i].transform.GetComponent<TreeManager>();
+        }
         time = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (winTree.GetHasWater())
+        if (AllWatered())
         {
-            if (time < 1.5f)
+            if (winPanel.activeSelf == false)
+                winPanel.SetActive(true);
+            if (time < 3.0f)
                 time += Time.deltaTime;
             else
                 LoadNextScene();
         }
+    }
+
+    private bool AllWatered()
+    {
+        foreach (TreeManager tree in winTrees)
+        {
+            if (!tree.GetHasWater())
+                return false;
+        }
+        return true;
     }
 
     private void YouWin()
@@ -36,6 +56,6 @@ public class Level1 : MonoBehaviour
 
     public void LoadNextScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(nextLvl);
     }
 }
