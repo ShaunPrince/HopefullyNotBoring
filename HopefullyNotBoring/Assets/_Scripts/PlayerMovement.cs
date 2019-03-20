@@ -161,9 +161,9 @@ public class PlayerMovement : MonoBehaviour
 
         //still need to check for what is below it (is it a floor?)
         //current layermask ignores the Player layer (layer 10)
-        Debug.DrawRay(this.transform.position, Vector3.down * 1.01f, Color.red);
-        Debug.DrawRay(this.transform.position + Vector3.right * .5f, Vector3.down * 1.01f, Color.red);
-        Debug.DrawRay(this.transform.position + Vector3.left * .5f, Vector3.down * 1.01f, Color.red);
+        //Debug.DrawRay(this.transform.position, Vector3.down * 1.01f, Color.red);
+        //Debug.DrawRay(this.transform.position + Vector3.right * .5f, Vector3.down * 1.01f, Color.red);
+        //Debug.DrawRay(this.transform.position + Vector3.left * .5f, Vector3.down * 1.01f, Color.red);
         bool mid = Physics.Raycast(this.transform.position, Vector3.down, out RaycastHit hitM, 1.01f, layersToRayHit);
         bool right = Physics.Raycast(this.transform.position + Vector3.right * .5f, Vector3.down, out RaycastHit hitR, 1.01f,layersToRayHit);
         bool left = Physics.Raycast(this.transform.position + Vector3.left * .5f, Vector3.down, out RaycastHit hitL, 1.01f, layersToRayHit);
