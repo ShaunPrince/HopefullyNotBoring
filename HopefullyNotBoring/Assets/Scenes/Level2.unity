@@ -860,6 +860,11 @@ PrefabInstance:
       propertyPath: nextLvl
       value: Level3
       objectReference: {fileID: 0}
+    - target: {fileID: 1579110200261563981, guid: 96184d12efa13a042aef4037eaef2848,
+        type: 3}
+      propertyPath: secondsToWait
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1579110200261563982, guid: 96184d12efa13a042aef4037eaef2848,
         type: 3}
       propertyPath: m_LocalPosition.x

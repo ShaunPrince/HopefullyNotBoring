@@ -6,6 +6,7 @@ public class Level1 : MonoBehaviour
 {
     public GameObject winPanel;
     public string nextLvl;
+    public float secondsToWait;
     //public GameObject sceneManager;
 
     //private SceneScript sceneScript;
@@ -32,7 +33,7 @@ public class Level1 : MonoBehaviour
         {
             if (winPanel.activeSelf == false)
                 winPanel.SetActive(true);
-            if (time < 3.0f)
+            if (time < secondsToWait)
                 time += Time.deltaTime;
             else
                 LoadNextScene();
